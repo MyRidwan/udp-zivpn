@@ -46,7 +46,7 @@ echo -e "Downloading UDP Service"
 sudo wget https://github.com/Nizwarax/udp-zivpn/releases/download/udp-zivpn_1.4.9/udp-zivpn-linux-amd64 -O /usr/local/bin/zivpn-bin
 sudo chmod +x /usr/local/bin/zivpn-bin
 sudo mkdir -p /etc/zivpn
-sudo wget https://raw.githubusercontent.com/Nizwarax/udp-zivpn/main/config.json -O /etc/zivpn/config.json
+sudo wget https://raw.githubusercontent.com/myridwan/udp-zivpn/ipuk/config.json -O /etc/zivpn/config.json
 
 echo "Generating cert files:"
 sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=California/L=Los Angeles/O=Example Corp/OU=IT Department/CN=zivpn" -keyout "/etc/zivpn/zivpn.key" -out "/etc/zivpn/zivpn.crt"
@@ -93,7 +93,7 @@ sudo systemctl start zivpn.service
 sudo ufw allow 6000:19999/udp > /dev/null
 sudo ufw allow 5667/udp > /dev/null
 
-sudo wget -O /usr/local/bin/zivpn https://raw.githubusercontent.com/Nizwarax/udp-zivpn/main/zivpn-menu.sh
+sudo wget -O /usr/local/bin/zivpn https://raw.githubusercontent.com/myridwan/udp-zivpn/ipuk/zivpn-menu.sh
 sudo chmod +x /usr/local/bin/zivpn
 
 # Unduh skrip uninstall dan letakkan di path yang dapat diakses
@@ -101,9 +101,9 @@ sudo wget -O /usr/local/bin/uninstall.sh https://raw.githubusercontent.com/Nizwa
 sudo chmod +x /usr/local/bin/uninstall.sh
 
 # Pasang skrip pembersihan otomatis dan jadwalkan
-sudo wget -O /usr/local/bin/zivpn-cleanup.sh https://raw.githubusercontent.com/Nizwarax/udp-zivpn/main/zivpn-cleanup.sh
+sudo wget -O /usr/local/bin/zivpn-cleanup.sh https://raw.githubusercontent.com/myridwan/udp-zivpn/ipuk/zivpn-cleanup.sh
 sudo chmod +x /usr/local/bin/zivpn-cleanup.sh
-sudo wget -O /usr/local/bin/zivpn-autobackup.sh https://raw.githubusercontent.com/wibuidc/zivpn-udp/main/zivpn-autobackup.sh
+sudo wget -O /usr/local/bin/zivpn-autobackup.sh https://raw.githubusercontent.com/myridwan/zivpn-udp/ipuk/zivpn-autobackup.sh
 sudo chmod +x /usr/local/bin/zivpn-autobackup.sh
 # Jalankan setiap menit untuk penghapusan yang mendekati real-time
 sudo bash -c 'echo "* * * * * root /usr/local/bin/zivpn-cleanup.sh" > /etc/cron.d/zivpn-cleanup'
